@@ -18,7 +18,7 @@ class Thread:
         self.recipient_agent = recipient_agent
         self.client = get_openai_client()
 
-    def get_completion(self, message: str, message_files=None, yield_messages=True):
+    def get_completion(self, message: str, message_files=[], yield_messages=True):
         if not self.thread:
             if self.id:
                 self.thread = self.client.beta.threads.retrieve(self.id)
